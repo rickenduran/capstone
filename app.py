@@ -1,12 +1,12 @@
 import os
 import json
-from sqlalchemy import exc
-from flask import Flask, request, abort, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from flask_cors import CORS
-from models import setup_db, db, Speaker, Event
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 from auth import AuthError, requires_auth
+from models import setup_db, db, Speaker, Event
+from flask import Flask, request, abort, jsonify
+
 
 RESULTS_PER_PAGE = 10
 
@@ -38,6 +38,10 @@ def create_app(test_config=None):
         )
         return response
 
+    @app.route("/")
+    def welcome():
+        return jsonify({"message": "Welcome to my Capstone!"})
+
     # ========================================#
     # GET Request Endpoints
     # ========================================#
@@ -45,7 +49,7 @@ def create_app(test_config=None):
     # =v= GET request for retriving events  =v= #
 
     @app.route("/events", methods=["GET"])
-    def get_events(payload):
+    def get_events():
 
         selection = Event.query.all()
         paginate_events = paginate_results(request, selection)
@@ -63,7 +67,7 @@ def create_app(test_config=None):
     # =v= GET request for retriving speakers  =v= #
 
     @app.route("/speakers", methods=["GET"])
-    def get_speakers(payload):
+    def get_speakers():
 
         selection = Speaker.query.order_by(Speaker.id).all()
         paginate_speakers = paginate_results(request, selection)
@@ -86,7 +90,7 @@ def create_app(test_config=None):
 
     @app.route("/events", methods=["POST"])
     @requires_auth("post:events")
-    def add_events(payload):
+    def add_events():
 
         body = request.get_json()
 
