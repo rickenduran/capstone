@@ -7,8 +7,8 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_migrate import Migrate
 
 database_name = "eventspeak"
-database_path = "postgres://{}/{}".format("localhost:5432", database_name)
-# database_path =
+# database_path = "postgres://{}/{}".format("localhost:5432", database_name)
+database_path = postgres://ydoapkryesthhq:69fa1e0f928b938fe759f1f7106aabad4db4b1cc966ab91df8286dd0c0b01f97@ec2-18-235-97-230.compute-1.amazonaws.com:5432/dei9fa645cfce2
 db = SQLAlchemy()
 
 """
