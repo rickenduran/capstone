@@ -25,6 +25,8 @@ def create_app(test_config=None):
     app = Flask(__name__)
     CORS(app, resources={r"/api/": {"origins": "*"}})
     setup_db(app)
+    db = SQLAlchemy(app)
+    migrate = Migrate(app, db)
 
     @app.after_request
     def after_request(response):
