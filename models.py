@@ -7,17 +7,18 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_migrate import Migrate
 
 database_name = "eventspeak"
-database_path = "postgres://{}/{}".format("localhost:5432", database_name)
+project_dir = os.path.dirname(os.path.abspath(__file__))
+database_path = "postgres://{}".format(os.path.join(project_dir, database_name)
 
 
 def setup_db(app):
-
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
+'''
     db.init_app(app)
     db.create_all()
-
+'''
 
 db = SQLAlchemy()
 

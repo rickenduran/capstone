@@ -23,8 +23,6 @@ def paginate_results(request, selection):
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
-    db = SQLAlchemy(app)
-    migrate = Migrate(app, db)
     CORS(app, resources={r"/api/": {"origins": "*"}})
 
     @app.after_request
