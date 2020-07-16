@@ -90,7 +90,7 @@ def create_app(test_config=None):
 
     @app.route("/events", methods=["POST"])
     @requires_auth("post:events")
-    def add_events():
+    def add_events(payload):
 
         body = request.get_json()
 
