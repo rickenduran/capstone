@@ -36,10 +36,10 @@ A API for setting up speaking events for a venue.
 
 #### Authentication:
 
-# Example of appended token(this example not valid, active included in submission):
- 
 # Heroku App URL: https://eventspeakcapstone.herokuapp.com/ 
 
+# Example of appended token(this example not valid, active included in submission):
+ 
 # Event Planer: 
 GET /drinks HTTP/1.1
 Host: localhost:5000
