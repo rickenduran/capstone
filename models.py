@@ -6,7 +6,8 @@ from datetime import date
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_migrate import Migrate
 
-database_path = "postgres://rick@localhost:5432/eventspeak"
+database_name = "eventspeak"
+database_path = "postgres://{}/{}".format("localhost:5432", database_name)
 
 
 def setup_db(app):
