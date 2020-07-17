@@ -3,8 +3,18 @@
 ## Description: 
 A API for setting up speaking events for a venue.
 
+## Motivation: 
+Final Project for Udacity's Full-Stack Web Developer NanoDegree program.
+- postgres & sqlalchemy used to build database=> Check: model.py
+- Main operations ran from main app file containing endpoints=> Check: app.py
+- App deployed via heroku service=> Check: (Heroku link below)
+- Contains test file to autimatically test app=> Check: test_app.py
+
+
 ### Dependencies:
 - Python 3.7
+## Use following command in terminal to install required dependencies:
+
 - pip install -r requirements.txt (to install pip dependencies)
 
 ### Models:
@@ -13,26 +23,82 @@ A API for setting up speaking events for a venue.
 - GET '/events'
     Retrieves events in the database and returns json
 
+    Returns:
+
+        return jsonify({
+            "success": True, 
+            "events": paginate_events
+        })
+
 - GET '/speakers'
     Retrieves speakers in the database and returns json
+
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "speakers": paginate_speakers
+    })
 
 - POST '/events'
     Add event to the database and returns json
 
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "created": event
+    })
+
 - POST '/speakers'
     Add speaker to the database and returns json
+
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "created": speaker
+    })
 
 - PATCH '/events/int:event_id' 
     Updates a event in the database and returns json
 
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "event": updated_event
+    })
+
 - PATCH '/speakers/int:speaker_id'
     Updates a speaker in the database and returns json
+
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "speaker": updated_expertise
+    })
 
 - DELETE '/events/int:event_id'
     Removes a event in the database and returns json
 
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "delete": event_id
+    })
+
 - DELETE '/speakers/int:speaker_id'
     Removes a speaker in the database and returns json
+
+    Returns:
+
+    return jsonify({
+        "success": True, 
+        "speaker": speaker_id
+    })
 
 #### Authentication:
 
